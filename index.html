@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Coding Quiz</title>
+</head>
+<body>
+    <!-- Create Start Button -->
+    <div class="start_btn"><button>Test Your Might</button></div>
+
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info title">
+            <span>Before We Begin</span>
+        </div>
+        <div class="info_list">
+            <div class="info">1. Once you select your answer, it's locked in</div>
+            <div class="info">2. Points will be awarded based on time</div>
+            <div class="info">3. You can't exit while you're playing</div>
+            <div class="info">4. Don't forget to check the high scores!</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div> 
+
+    <!-- Quiz Box -->
+<div class="quiz_box">
+    <header>
+        <div class="title">Coding Quiz</div>
+        <div class="timer">
+            <div class="time_text">Time Left</div>
+            <div class="time_sec">75</div>
+        </div>
+    </header>
+    <section>
+        <div class="que_text">
+            <!-- <span>Commonly Used Data Types DO NOT include:</span> -->
+        </div>
+        <div class="answer_key">
+            <!-- <div class="option">
+                <span>Strings</span>
+            </div>
+            <div class="option">
+                <span>Booleans</span>
+            </div>
+            <div class="option">
+                <span>Alerts</span>
+            </div>
+            <div class="option">
+                <span>Numbers</span>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Quiz Box Footer -->
+    <footer>
+        <div class="total_que">
+            <span><p>2</p>Of<p>5</p>Questions</span>
+        </div>
+        <button class="next_btn">Next Question</button>
+    </footer>
+</div>
+
+<!-- Results Box -->
+<div class="results">
+    
+    <div class="complete_text">Congratulations, you've completed the quiz!</div>
+    <div class="score_text">
+        <span>whoops, looks like you only got<p>2</p> out of<p>5</p></span>
+    </div>
+    <div class="buttons">
+        <button class="restart">Try Again</button>
+        <button class="quit">Give Up</button>
+    </div>
+</div>
+
+<script src="JS/script.js"></script>
+<script src="JS/questions.js"></script>
+
+</body>
+</html>
