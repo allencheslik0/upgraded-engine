@@ -1,5 +1,4 @@
-var questions = [
-    {
+var questions = [{
         question: "Commonly used data types DO NOT include:",
         options: ["Strings", "Booleans", "Alerts", "Numbers"],
         answer: "Alerts"
@@ -63,11 +62,11 @@ timer.addEventListener("click", function () {
 
 // Renders QnA
 function render(questionIndex) {
-   questionsDiv.innerHTML = "";
+    questionsDiv.innerHTML = "";
     ulCreate.innerHTML = "";
     // For loops to loop through all info in array
     for (var i = 0; i < questions.length; i++) {
-        // Appends question title only
+        // Updates QnA
         var userQuestion = questions[questionIndex].question;
         var userOptions = questions[questionIndex].options;
         questionsDiv.textContent = userQuestion;
@@ -75,12 +74,12 @@ function render(questionIndex) {
     userOptions.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
-       questionsDiv.appendChild(ulCreate);
+        questionsDiv.appendChild(ulCreate);
         ulCreate.appendChild(listItem);
         listItem.addEventListener("click", (compare));
     })
 }
-// Event comparison
+
 function compare(event) {
     var element = event.target;
 
@@ -92,13 +91,13 @@ function compare(event) {
             score++;
             createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
         } else {
-            // Penalty deduction
+            // Time Penalty
             secondsLeft = secondsLeft - penalty;
             createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
         }
 
     }
-    //What question are we on
+    //Question #
     questionIndex++;
 
     if (questionIndex >= questions.length) {
@@ -107,60 +106,61 @@ function compare(event) {
     } else {
         render(questionIndex);
     }
-   questionsDiv.appendChild(createDiv);
+    questionsDiv.appendChild(createDiv);
 
 }
+
 function allDone() {
-   questionsDiv.innerHTML = "";
+    questionsDiv.innerHTML = "";
     Time.innerHTML = "";
 
-    // Needed Heading Creation:
+    // Header:
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
     createH1.textContent = "All Done!"
 
-   questionsDiv.appendChild(createH1);
+    questionsDiv.appendChild(createH1);
 
-    // paragraph creation
+    // Paragraph
     var createP = document.createElement("p");
     createP.setAttribute("id", "createP");
 
-   questionsDiv.appendChild(createP);
+    questionsDiv.appendChild(createP);
 
-    // Calculates score based on time
+    // Score Calculation
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
         var createP2 = document.createElement("p");
         clearInterval(holdInterval);
         createP.textContent = "Your final score is: " + timeRemaining;
 
-       questionsDiv.appendChild(createP2);
+        questionsDiv.appendChild(createP2);
     }
 
-    // label creation
+    // label Creation
     var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter your initials: ";
 
-   questionsDiv.appendChild(createLabel);
+    questionsDiv.appendChild(createLabel);
 
-    // input for storage
+    // Local Storage
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
     createInput.textContent = "";
 
-   questionsDiv.appendChild(createInput);
+    questionsDiv.appendChild(createInput);
 
-    // submit
+    // Submission
     var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
     createSubmit.textContent = "Submit";
 
-   questionsDiv.appendChild(createSubmit);
+    questionsDiv.appendChild(createSubmit);
 
-    // Event listener to capture initials and local storage for initials and score
+    // Event listener to record score data
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
 
@@ -183,7 +183,7 @@ function allDone() {
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
-            // Travels to final page
+            // Top Scores Storage
             window.location.replace("./HighScores.html");
         }
     });
